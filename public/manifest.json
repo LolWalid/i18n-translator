@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "i18n Editor",
+  "name": "i18n Editor for rails",
   "icons": [
     {
       "src": "favicon.ico",

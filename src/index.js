@@ -1,7 +1,7 @@
 import React from 'react';
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
 import './index.css';
-import App from './App';
+import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
@@ -10,7 +10,7 @@ import { translations } from './config/Constants'
 
 const store = createStore(rootReducer, { translations: translations })
 
-render(
+ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
