@@ -1,18 +1,18 @@
 import React from 'react';
-import Element from './Element';
+import ListElement from './ListElement';
 import Form from './Form';
+import { keys } from '../config/Constants';
 
 export default class List extends React.Component{
   constructor(props) {
     super(props)
     this.state = {
-      keys: ['a', 'b', 'c.d'],
-      selectedKey: 'a'
+      selectedKey: keys[0]
     }
   }
 
-  onClick(i18nKey) {
-    this.setState({ selectedKey: i18nKey})
+  onClick(selectedKey) {
+    this.setState({ selectedKey })
   }
 
   render() {
@@ -26,8 +26,8 @@ export default class List extends React.Component{
   }
 
   renderKeysList() {
-    return (this.state.keys.map((i18nKey, index) => {
-      return <Element
+    return (keys.map((i18nKey, index) => {
+      return <ListElement
               key={index}
               onClick={_ => this.onClick(i18nKey)}
               i18nKey={i18nKey} />

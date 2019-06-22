@@ -1,0 +1,12 @@
+fr:
+  admin:
+    create:
+      success: "administrateur créé avec succès"
+      failure: "administrateur n'a pas pu être créé"
+  project:
+    create:
+    change_amount:
+      success: "le montant de votre projet a été modifié"
+  user:
+    notify:
+      account_changed: "votre compte a bien été modifié"

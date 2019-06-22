@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Element extends React.Component{
+export default class ListElement extends React.Component{
   render() {
     return (
       <div onClick={this.props.onClick}>
