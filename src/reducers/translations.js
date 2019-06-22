@@ -11,6 +11,10 @@ const translations = (state = [], action) => {
           editing: false
         }
       ]
+    case 'EDIT_TRANSLATION':
+      return state.map(translation => (
+        translation.id === action.id) ? {...translation, fr: action.fr, en: action.en} : translation
+      )
     case 'MARK_EDITING':
       return state.map(translation => (
         translation.id === action.id) ? {...translation, editing: true} : { ...translation, editing: false }

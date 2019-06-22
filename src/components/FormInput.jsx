@@ -21,13 +21,15 @@ export default class FormInput extends React.Component {
   }
 
   handleChange(event) {
-    this.setState({translation: event.target.value})
+    let traduction = event.target.value
+    this.setState({ translation: traduction })
+    this.props.onChange({ locale: this.props.locale, translation: traduction})
   }
 
   render() {
     return (
       <div>
-        <h1>{this.props.locale}</h1>
+        <h4>{this.props.locale}</h4>
         <textarea value={this.state.translation} rows="4" cols="50" onChange={this.handleChange}/>
       </div>
     )

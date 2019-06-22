@@ -1,17 +1,7 @@
 import React from 'react';
 
-// export default class Translation extends React.Component {
-//   render() {
-//     return (
-//       <div onClick={this.props.onClick} >
-//         <p>{this.props.i18nKey}</p>
-//       </div>
-//     )
-//   }
-// }
-
-const Translation = ({ onClick, i18nKey }) => (
-  <div onClick={onClick} >
+const Translation = ({ onClick, i18nKey, editing }) => (
+  <div onClick={onClick} style={{'background-color': editing ? 'red' : '', cursor: 'pointer' }}>
     <p>{i18nKey}</p>
   </div>
 )
