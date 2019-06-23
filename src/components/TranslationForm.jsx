@@ -11,10 +11,11 @@ class TranslationForm extends React.Component {
   }
 
   static getDerivedStateFromProps(props, state) {
-    if (state.id !== props.translation.id) {
+    if (props.translation && state.id === props.translation.id) {
+      return null
+    } else {
       return { ...props.translation }
     }
-    return null;
   }
 
   handleSubmit(event) {
@@ -29,21 +30,25 @@ class TranslationForm extends React.Component {
   render() {
     let { translation } = this.props
     return (
-      <form onSubmit={this.handleSubmit}>
-        <FormInput
-          locale={'fr'}
-          selectedKey={translation.i18nKey}
-          translation={translation.fr}
-          onChange={this.onInputChange}
-        />
-        <FormInput
-          locale={'en'}
-          selectedKey={translation.i18nKey}
-          translation={translation.en}
-          onChange={this.onInputChange}
-        />
-        <button type="submit"> Save </button>
-      </form>
+      <div>
+      { translation &&
+        <form onSubmit={this.handleSubmit}>
+          <FormInput
+            locale={'fr'}
+            selectedKey={translation.i18nKey}
+            translation={translation.fr}
+            onChange={this.onInputChange}
+          />
+          <FormInput
+            locale={'en'}
+            selectedKey={translation.i18nKey}
+            translation={translation.en}
+            onChange={this.onInputChange}
+          />
+          <button type="submit"> Save </button>
+        </form>
+        }
+      </div>
     )
   }
 }

@@ -9,29 +9,6 @@ function extractKeysFromJson(hash) {
   }).flat()
 }
 
-var hash = {
-  "fr": {
-    "admin": {
-      "create": {
-        "success": "administrateur créé avec succès",
-        "failure": "administrateur n'a pas pu être créé"
-      }
-    },
-    "project": {
-      "create": null,
-      "change_amount": {
-        "success": "le montant de votre projet a été modifié"
-      }
-    },
-    "user": {
-      "notify": {
-        "account_changed": "votre compte a bien été modifié"
-      }
-    }
-  }
-}
-
-
 function getValue(sub_keys, hash) {
   var x = hash
   for (var i = 0; i < sub_keys.length; ++i) {
@@ -40,7 +17,7 @@ function getValue(sub_keys, hash) {
   return x;
 }
 
-var keys_array = extractKeysFromJson(hash)
-keys_array.map(function(e) {
-  return getValue(e.split('.'), hash)
-})
+export {
+  extractKeysFromJson,
+  getValue
+}
