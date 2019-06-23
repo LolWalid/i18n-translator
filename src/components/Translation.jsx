@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Translation = ({ onClick, i18nKey, editing }) => (
-  <div onClick={onClick} style={{'background-color': editing ? 'red' : '', cursor: 'pointer' }}>
+  <div onClick={onClick} style={{backgroundColor: editing ? 'red' : '', cursor: 'pointer' }}>
     <p>{i18nKey}</p>
   </div>
 )
