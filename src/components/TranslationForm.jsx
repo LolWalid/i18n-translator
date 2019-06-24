@@ -1,5 +1,6 @@
 import React from 'react'
 import FormInput from './FormInput';
+import styles from '../styles/scrollable-menu.module.css';
 
 class TranslationForm extends React.Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class TranslationForm extends React.Component {
   render() {
     let { translation } = this.props
     return (
-      <div>
+      <div className={styles.scrollable}>
       { translation &&
         <form onSubmit={this.handleSubmit}>
           <FormInput

@@ -1,8 +1,9 @@
 import React from 'react'
 import Translation from './Translation';
+import styles from '../styles/scrollable-menu.module.css';
 
 const TranslationList = ({ translations, markEditing }) => (
-  <ul>
+  <div className={styles.scrollable}>
     {translations.map(translation =>
       <Translation
         key={translation.id}
@@ -10,7 +11,7 @@ const TranslationList = ({ translations, markEditing }) => (
         {...translation}
       />
     )}
-  </ul>
+  </div>
 )
 
 export default TranslationList
