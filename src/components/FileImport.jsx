@@ -2,10 +2,8 @@ import React from 'react'
 import { extractKeysFromJson, getValue } from '../utils/translationExtractor'
 
 const FileImport = ({ addTranslation }) => {
-  let fileReader
-
-  const handleFileRead = () => {
-    var hash = JSON.parse(fileReader.result).fr
+  const handleFileRead = (event) => {
+    var hash = JSON.parse(event.target.result).fr
     var keys_array = extractKeysFromJson(hash)
     keys_array.map(function(key) {
       return addTranslation(key, getValue(key.split('.'), hash), null)
@@ -14,13 +12,15 @@ const FileImport = ({ addTranslation }) => {
 
   const onFileUploaded = (event) => {
     event.preventDefault()
-    fileReader = new FileReader()
-    fileReader.onloadend = handleFileRead
-    fileReader.readAsText(event.target.files[0])
+    Array.from(event.target.files).forEach(file => {
+      let fileReader = new FileReader()
+      fileReader.onloadend = handleFileRead
+      fileReader.readAsText(file)
+     });
   }
 
   return (
-    <input type="file" onChange={e => onFileUploaded(e)}/>
+    <input type="file" multiple={true} accept=".json,application/json" onChange={e => onFileUploaded(e)}/>
   )
 }
 
