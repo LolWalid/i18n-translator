@@ -1,17 +1,20 @@
 const translations = (state = [], action) => {
   switch (action.type) {
     case 'ADD_TRANSLATION':
-      let index = state.findIndex(translation => ( translation.i18nKey === action.key))
-      if (index !== -1) {
-        return state
+      let foundIndex = state.findIndex(translation => ( translation.i18nKey === action.key))
+      if (foundIndex !== -1) {
+        return state.map((translation, index) => (
+          index === foundIndex ? {...translation, [action.langage]: action.translationValue} : translation
+        ))
       } else {
         return [
           ...state,
           {
             id: action.key,
             i18nKey: action.key,
-            fr: action.fr,
-            en: action.en,
+            [action.langage]: action.translationValue,
+            // fr: action.fr,
+            // en: action.en,
             editing: false
           }
         ]

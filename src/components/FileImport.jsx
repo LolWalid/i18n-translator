@@ -3,10 +3,13 @@ import { extractKeysFromJson, getValue } from '../utils/translationExtractor'
 
 const FileImport = ({ addTranslation }) => {
   const handleFileRead = (event) => {
-    var hash = JSON.parse(event.target.result).fr
-    var keys_array = extractKeysFromJson(hash)
+    var hash = JSON.parse(event.target.result)
+    let langage = Object.keys(hash)[0]
+    let json = hash[langage]
+
+    var keys_array = extractKeysFromJson(json)
     keys_array.map(function(key) {
-      return addTranslation(key, getValue(key.split('.'), hash), null)
+      return addTranslation({ key, langage: langage, translationValue: getValue(key.split('.'), json) })
     })
   }
 

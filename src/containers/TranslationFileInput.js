@@ -3,7 +3,7 @@ import { addTranslation } from '../actions'
 import FileImport from '../components/FileImport'
 
 const mapDispatchToProps = dispatch => ({
-  addTranslation: (key, fr, en) => dispatch(addTranslation({key, fr, en}))
+  addTranslation: ({key, langage, translationValue}) => dispatch(addTranslation({key, langage, translationValue}))
 })
 
 export default connect(

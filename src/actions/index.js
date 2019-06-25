@@ -1,8 +1,8 @@
-export const addTranslation = ({key, fr, en}) => ({
+export const addTranslation = ({key, langage, translationValue}) => ({
   type: 'ADD_TRANSLATION',
   key,
-  fr,
-  en
+  langage,
+  translationValue
 })
 
 export const markEditing = id => ({
